@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/instant-minion/static/css/main.20013eba.css",
-    "main.js": "/instant-minion/static/js/main.aa890667.js",
+    "main.css": "/instant-minion/static/css/main.cba62335.css",
+    "main.js": "/instant-minion/static/js/main.8cec8f6d.js",
     "index.html": "/instant-minion/index.html",
-    "main.20013eba.css.map": "/instant-minion/static/css/main.20013eba.css.map",
-    "main.aa890667.js.map": "/instant-minion/static/js/main.aa890667.js.map"
+    "main.cba62335.css.map": "/instant-minion/static/css/main.cba62335.css.map",
+    "main.8cec8f6d.js.map": "/instant-minion/static/js/main.8cec8f6d.js.map"
   },
   "entrypoints": [
-    "static/css/main.20013eba.css",
-    "static/js/main.aa890667.js"
+    "static/css/main.cba62335.css",
+    "static/js/main.8cec8f6d.js"
   ]
 }
