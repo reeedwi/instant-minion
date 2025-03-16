@@ -54,18 +54,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-4 px-4">
+    <div className="min-h-screen bg-gray-100 py-4 px-2 sm:px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-indigo-800">Instant Minion Generator</h1>
-            <div className="text-sm text-gray-600 italic">
+            <h1 className="text-2xl font-bold text-indigo-800 break-words">Instant Minion Generator</h1>
+            <div className="text-sm text-gray-600 italic break-words">
               Created using Caldwell Tanner's Instant Minion Rules from Not Another D&D Podcast
             </div>
           </div>
           <button
             onClick={handleGenerateMinion}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105 w-full sm:w-auto"
           >
             Generate Minion
           </button>

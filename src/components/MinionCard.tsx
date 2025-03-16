@@ -113,23 +113,25 @@ const MinionCard: React.FC<MinionCardProps> = ({ minion, diceRolls }) => {
     <div className="bg-white rounded-lg shadow-lg p-4 max-w-full mx-auto">
       {/* Header */}
       <div className="border-b border-gray-200 pb-2 mb-3">
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-gray-800 break-words">
           {minion.type.type} - {minion.description.description}
         </h2>
       </div>
       
-      {/* Main Content - 3 Column Layout */}
-      <div className="grid grid-cols-3 gap-4">
+      {/* Main Content - Responsive Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Left Column - Dice Rolls */}
         <div className="bg-gray-50 p-3 rounded-lg text-sm">
           <h3 className="text-md font-semibold text-gray-700 mb-2">Dice Rolls</h3>
-          <DiceRollDisplay roll={diceRolls.type} label="Type" />
-          <DiceRollDisplay roll={diceRolls.description} label="Description" />
-          <DiceRollDisplay roll={diceRolls.hitPoints} label="Hit Points" modifier={10} />
-          <DiceRollDisplay roll={diceRolls.ability} label="Ability" />
-          <DiceRollDisplay roll={diceRolls.modifier} label="Modifier" />
-          <DiceRollDisplay roll={diceRolls.armorClass} label="Armor Class" modifier={10} />
-          <DiceRollDisplay roll={diceRolls.damageModifier} label="Damage Mod" />
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
+            <DiceRollDisplay roll={diceRolls.type} label="Type" />
+            <DiceRollDisplay roll={diceRolls.description} label="Description" />
+            <DiceRollDisplay roll={diceRolls.hitPoints} label="Hit Points" modifier={10} />
+            <DiceRollDisplay roll={diceRolls.ability} label="Ability" />
+            <DiceRollDisplay roll={diceRolls.modifier} label="Modifier" />
+            <DiceRollDisplay roll={diceRolls.armorClass} label="Armor Class" modifier={10} />
+            <DiceRollDisplay roll={diceRolls.damageModifier} label="Damage Mod" />
+          </div>
         </div>
         
         {/* Middle Column - Stats and Abilities */}
@@ -170,7 +172,7 @@ const MinionCard: React.FC<MinionCardProps> = ({ minion, diceRolls }) => {
           {/* Abilities Grid */}
           <div>
             <h3 className="text-md font-semibold text-gray-700 mb-2">Abilities</h3>
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-3 gap-1">
               {['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'].map(ability => {
                 let modifier = 0;
                 if (ability === minion.ability.mainAbility) {
@@ -217,11 +219,11 @@ const MinionCard: React.FC<MinionCardProps> = ({ minion, diceRolls }) => {
             <h3 className="text-md font-semibold text-gray-700 mb-2">Special Traits</h3>
             <div className="bg-yellow-50 p-2 rounded-lg mb-2 text-sm">
               <div className="font-medium text-yellow-800">Type: {minion.type.type}</div>
-              <div className="text-yellow-700">{minion.type.specialTrait}</div>
+              <div className="text-yellow-700 break-words">{minion.type.specialTrait}</div>
             </div>
             <div className="bg-purple-50 p-2 rounded-lg text-sm mb-2">
               <div className="font-medium text-purple-800">Skill: {minion.ability.specialSkill}</div>
-              <div className="text-purple-700">{minion.ability.specialSkillDescription}</div>
+              <div className="text-purple-700 break-words">{minion.ability.specialSkillDescription}</div>
             </div>
           </div>
 
@@ -229,7 +231,7 @@ const MinionCard: React.FC<MinionCardProps> = ({ minion, diceRolls }) => {
           {rollHistory.length > 0 && (
             <div className="flex-1 mt-2">
               <h3 className="text-md font-semibold text-gray-700 mb-2">Roll History</h3>
-              <div className="flex flex-col-reverse gap-1 h-[200px] overflow-y-auto pr-1">
+              <div className="flex flex-col-reverse gap-1 h-[200px] md:h-[150px] overflow-y-auto pr-1">
                 {rollHistory.map((roll, index) => {
                   const isAbility = roll.type === 'ability';
                   // Calculate color index based on position from end
