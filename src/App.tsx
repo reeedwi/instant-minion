@@ -25,37 +25,47 @@ const App: React.FC = () => {
     const armorClassRoll = rollDice('d6');
     const damageModifierRoll = rollDice('d4');
     
-    // Store the dice rolls
-    setDiceRolls({
+    // Store the dice rolls for display
+    const displayRolls = {
       type: typeRoll,
       description: descriptionRoll,
-      hitPoints: hitPointsRoll,
+      hitPoints: hitPointsRoll,  // Don't modify the roll, let DiceRollDisplay handle the +10
       ability: abilityRoll,
       modifier: modifierRoll,
-      armorClass: armorClassRoll,
+      armorClass: armorClassRoll,  // Don't modify the roll, let DiceRollDisplay handle the +10
       damageModifier: damageModifierRoll,
-    });
+    };
     
-    // Generate the minion
-    const newMinion = generateMinion();
+    setDiceRolls(displayRolls);
+    
+    // Generate the minion using the raw rolls
+    const generatorRolls = {
+      typeRoll,
+      descriptionRoll,
+      hitPointsRoll,  // Pass the raw roll, the generator will add +10
+      abilityRoll,
+      modifierRoll,
+      armorClassRoll,  // Pass the raw roll, the generator will add +10
+      damageModifierRoll,
+    };
+    
+    const newMinion = generateMinion(generatorRolls);
     setMinion(newMinion);
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-indigo-800 mb-2">Instant Minion Generator</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Generate a random minion for your tabletop role-playing game with a single click.
-            Roll the dice and see what you get!
-          </p>
-        </header>
-        
-        <div className="text-center mb-8">
+    <div className="min-h-screen bg-gray-100 py-4 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-2xl font-bold text-indigo-800">Instant Minion Generator</h1>
+            <div className="text-sm text-gray-600 italic">
+              Created using Caldwell Tanner's Instant Minion Rules from Not Another D&D Podcast
+            </div>
+          </div>
           <button
             onClick={handleGenerateMinion}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 transform hover:scale-105"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105"
           >
             Generate Minion
           </button>
@@ -66,8 +76,8 @@ const App: React.FC = () => {
         )}
         
         {!minion && (
-          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-            <p className="text-gray-600 text-lg">
+          <div className="bg-white rounded-lg shadow-lg p-4 text-center">
+            <p className="text-gray-600">
               Click the button above to generate your first minion!
             </p>
           </div>

@@ -30,7 +30,7 @@ All minions start with:
 | 70   | Robot | AC +1 |
 | 80   | Talking Ape | Weapon Upgrade (1d8 Bludgeoning Damage) |
 | 90   | Awakened Mushroom | 1d4 Poison Spore Damage on hit |
-| 00   | Living Puppet | Curse (On a hit, inflicts Bane until end of next turn) |
+| 100   | Living Puppet | Curse (On a hit, inflicts Bane until end of next turn) |
 
 ### **Minion Description (D10)**
 | Roll | Description |
@@ -44,7 +44,7 @@ All minions start with:
 | 7    | Uncomfortably muscular |
 | 8    | Dressed in dark leathers and chains |
 | 9    | Blessed with perfect teeth |
-| 0    | Clearly on the brink of financial ruin |
+| 10    | Clearly on the brink of financial ruin |
 
 ### **Main Ability & Special Skill (D12)**
 | Roll | Main Ability | Special Skill |

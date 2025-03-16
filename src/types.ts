@@ -35,9 +35,11 @@ export interface Minion {
   description: MinionDescription;
   ability: MinionAbility;
   hitPoints: number;
+  baseHP: number;  // Base HP before tough bonus
   mainModifier: number;
   armorClass: number;
   damageModifier: number;
+  baseDamageDice: 'd6' | 'd8';
   flawAbility: string;
   flawModifier: number;
   
